@@ -19,6 +19,7 @@ public class Encomenda {
     private UUID uuid;
     private String nomeRemetente;
     private String nomeDestinatario;
+    private String descricao;
     @Enumerated(EnumType.STRING)
     private TipoPacote tipoPacote;
 }
