@@ -1,10 +1,9 @@
 package com.calculadoraDeFrete.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
+
+import java.util.UUID;
 
 @Getter
 @Setter
@@ -17,7 +16,9 @@ public class Encomenda {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    private UUID uuid;
     private String nomeRemetente;
     private String nomeDestinatario;
+    @Enumerated(EnumType.STRING)
     private TipoPacote tipoPacote;
 }
