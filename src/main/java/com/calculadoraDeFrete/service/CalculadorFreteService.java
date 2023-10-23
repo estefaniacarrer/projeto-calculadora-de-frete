@@ -7,13 +7,12 @@ import com.calculadoraDeFrete.model.TipoPacote;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-
 @Service
 @RequiredArgsConstructor
 public class CalculadorFreteService {
 
     private final CalculadorDistanciaService calculadorDistanciaService;
-    private static final double VALOR_POR_QUILOMETRO = 0.50;
+    private static final double VALOR_POR_QUILOMETRO = 0.10;
 
     public double calcularFrete(EncomendaDTO encomendaDTO) {
         Endereco enderecoOrigem = encomendaDTO.getEnderecoOrigem();
@@ -28,10 +27,13 @@ public class CalculadorFreteService {
         double valorBase = tipoPacote.getValor();
 
         if (distancia > 0) {
-            double valorFreteBase = distancia * VALOR_POR_QUILOMETRO; // Custo baseado na quilometragem
-            return valorFreteBase + (distancia * valorBase); // Custo total considerando a quilometragem e o tipo de pacote
+            double valorFreteBase = distancia * VALOR_POR_QUILOMETRO;
+            double custoTotal = valorFreteBase + (distancia * valorBase);
+
+            custoTotal = Math.round(custoTotal * 100.0) / 100.0;
+            return custoTotal;
         } else {
-            return -1; // Ou algum outro valor de erro adequado
+            return -1.0;
         }
     }
 }

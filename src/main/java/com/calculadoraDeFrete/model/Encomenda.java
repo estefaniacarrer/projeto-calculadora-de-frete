@@ -45,15 +45,4 @@ public class Encomenda {
     private Endereco enderecoDestino;
     private double valorFrete;
 
-    public Encomenda(EncomendaDTO encomendaDTO) {
-        this.uuid = encomendaDTO.getUuid();
-        this.nomeRemetente = encomendaDTO.getNomeRemetente();
-        this.nomeDestinatario = encomendaDTO.getNomeDestinatario();
-        this.descricao = encomendaDTO.getDescricao();
-        this.tipoPacote = encomendaDTO.getTipoPacote();
-        this.enderecoOrigem = encomendaDTO.getEnderecoOrigem();
-        this.enderecoDestino = encomendaDTO.getEnderecoDestino();
-    }
-
-
 }
