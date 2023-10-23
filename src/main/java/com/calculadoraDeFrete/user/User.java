@@ -1,0 +1,40 @@
+package com.calculadoraDeFrete.user;
+
+import jakarta.persistence.*;
+import lombok.*;
+import org.hibernate.annotations.Where;
+
+import java.time.LocalDateTime;
+import java.util.UUID;
+
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
+@Entity
+@Where(clause = "userActive = true")
+
+public class User {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long userId;
+    @Column(unique = true)
+    private String userName;
+    @Column(unique = true)
+    private String userEmail;
+    private String userPassword;
+    private LocalDateTime userRegistrationDate;
+    private Boolean userActive;
+
+    private boolean accountExpired;
+    private boolean accountLocked;
+    private boolean credentialsExpired;
+
+    public User(String userName, String userEmail, String userPassword){
+        this.userName = userName;
+        this.userEmail = userEmail;
+        this.userPassword = userPassword;
+        this.userActive = true;
+    }
+}

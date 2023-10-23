@@ -1,4 +1,4 @@
 package com.calculadoraDeFrete.user;
 
-public class userDto {
+public class UserRequest {
 }
