@@ -28,7 +28,7 @@ public class UserService {
         return this.modelMapper.map(userDto, User.class);
     }
 
-    public UserDto getByUsername(String userName) {
+    public UserDto getByUserName(String userName) {
         return this.repository.findByUserName(userName);
     }
 
