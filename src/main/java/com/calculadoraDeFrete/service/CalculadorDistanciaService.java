@@ -7,15 +7,15 @@ import com.google.maps.GeoApiContext;
 import com.google.maps.model.DistanceMatrix;
 import com.google.maps.model.DistanceMatrixElement;
 import com.google.maps.model.DistanceMatrixElementStatus;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Service;
 
 @Service
+@RequiredArgsConstructor
 public class CalculadorDistanciaService {
 
-    @Autowired
-    private Environment env;
+    private final Environment env;
 
     public double calcularDistancia(DistanciaDTO distanciaDTO) {
         String apiKey = env.getProperty("google.maps.api.key");
