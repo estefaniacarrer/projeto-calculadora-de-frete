@@ -5,10 +5,10 @@ import lombok.Getter;
 @Getter
 public enum TipoPacote {
 
-    PEQUENO("Até 500gr", 0.20),
-    MEDIO("Acima de 500gr até 2kg", 0.40 ),
-    GRANDE("Acima de 2g até 4kg", 0.60),
-    EXTRAGRANDE("Acima de 4kg até 10kg", 0.80);
+    PEQUENO("Até 500gr", 0.05),
+    MEDIO("Acima de 500gr até 2kg", 0.10 ),
+    GRANDE("Acima de 2g até 4kg", 0.15),
+    EXTRAGRANDE("Acima de 4kg até 10kg", 0.25);
 
     private final String descricao;
     private final double valor;
