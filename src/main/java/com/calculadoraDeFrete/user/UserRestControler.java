@@ -1,4 +1,5 @@
-package com.calculadoraDeFrete.user;
 
-public class userService {
+package com.calculadoraDeFrete.user;
+public class UserRestControler {
+
 }
