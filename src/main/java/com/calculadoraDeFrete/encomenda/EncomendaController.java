@@ -1,13 +1,6 @@
-package com.calculadoraDeFrete.controller;
+package com.calculadoraDeFrete.encomenda;
 
-import com.calculadoraDeFrete.dto.EncomendaDTO;
-import com.calculadoraDeFrete.dto.EncomendaRequest;
-import com.calculadoraDeFrete.dto.EncomendaResponse;
 import com.calculadoraDeFrete.exceptions.NaoEncontradoException;
-import com.calculadoraDeFrete.model.Encomenda;
-import com.calculadoraDeFrete.repository.EncomendaRepository;
-import com.calculadoraDeFrete.service.EncomendaComFreteService;
-import com.calculadoraDeFrete.service.EncomendaService;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
@@ -20,13 +13,12 @@ import java.util.UUID;
 @RestController
 @RequestMapping("/encomendas")
 @RequiredArgsConstructor
-public class EncomendaComFreteController {
+public class EncomendaController {
 
-    private final EncomendaComFreteService encomendaService;
     private final ModelMapper modelMapper;
     private final EncomendaService service;
 
-    @GetMapping
+    @GetMapping("/all")
     public List<EncomendaResponse> listarTodos() {
         return this.service.listarTodos().stream()
                 .map(this::convertResponse)
@@ -50,7 +42,7 @@ public class EncomendaComFreteController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public EncomendaResponse cadastrarEncomenda(@RequestBody EncomendaRequest request) {
-        EncomendaResponse encomendaResponse = encomendaService.cadastrarEncomenda(request);
+        EncomendaResponse encomendaResponse = service.cadastrarEncomenda(request);
         return encomendaResponse;
     }
 

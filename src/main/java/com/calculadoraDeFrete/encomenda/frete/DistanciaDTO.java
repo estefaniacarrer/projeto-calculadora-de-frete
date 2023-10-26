@@ -1,6 +1,6 @@
-package com.calculadoraDeFrete.dto;
+package com.calculadoraDeFrete.encomenda.frete;
 
-import com.calculadoraDeFrete.model.Endereco;
+import com.calculadoraDeFrete.encomenda.Endereco;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

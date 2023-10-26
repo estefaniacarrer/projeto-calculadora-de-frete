@@ -1,12 +1,13 @@
-package com.calculadoraDeFrete.service;
+package com.calculadoraDeFrete.encomenda;
 
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
-import com.calculadoraDeFrete.dto.EncomendaDTO;
-import com.calculadoraDeFrete.model.Encomenda;
-import com.calculadoraDeFrete.repository.EncomendaRepository;
+import com.calculadoraDeFrete.encomenda.EncomendaDTO;
+import com.calculadoraDeFrete.encomenda.Encomenda;
+import com.calculadoraDeFrete.encomenda.EncomendaRepository;
+import com.calculadoraDeFrete.encomenda.frete.CalculadorFreteService;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
@@ -17,6 +18,7 @@ public class EncomendaService {
 
     private final EncomendaRepository repository;
     private final ModelMapper modelMapper;
+    private final CalculadorFreteService calculadorFreteService;
 
     public List<EncomendaDTO> listarTodos() {
         return this.repository.findAll().stream()
@@ -40,6 +42,20 @@ public class EncomendaService {
         return this.repository.findByDescricaoContainingIgnoreCase(descricao).stream()
                 .map(this::convertDto)
                 .toList();
+    }
+
+    public EncomendaResponse cadastrarEncomenda(EncomendaRequest request) {
+        EncomendaDTO encomendaDTO = modelMapper.map(request, EncomendaDTO.class);
+        Encomenda encomenda = modelMapper.map(encomendaDTO, Encomenda.class);
+
+        UUID uuid = UUID.randomUUID();
+        encomenda.setUuid(uuid);
+
+        double valorFrete = calculadorFreteService.calcularFrete(encomendaDTO);
+        encomenda.setValorFrete(valorFrete);
+
+        Encomenda savedEncomenda = repository.save(encomenda);
+        return modelMapper.map(savedEncomenda, EncomendaResponse.class);
     }
 
     public EncomendaDTO substituir(UUID uuid, EncomendaDTO request) {

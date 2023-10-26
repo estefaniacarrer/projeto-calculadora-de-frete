@@ -1,7 +1,5 @@
-package com.calculadoraDeFrete.dto;
+package com.calculadoraDeFrete.encomenda;
 
-import com.calculadoraDeFrete.model.Endereco;
-import com.calculadoraDeFrete.model.TipoPacote;
 import lombok.*;
 
 import java.util.UUID;
