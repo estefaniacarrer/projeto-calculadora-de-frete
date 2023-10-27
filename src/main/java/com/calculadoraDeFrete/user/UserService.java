@@ -2,6 +2,8 @@ package com.calculadoraDeFrete.user;
 
 
 import java.util.List;
+import java.util.Optional;
+
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
@@ -20,21 +22,21 @@ public class UserService {
                 .toList();
     }
 
-    private UserDto convertDto(User user) {
-        return this.modelMapper.map(user, UserDto.class);
+    private UserDto convertDto(User users) {
+        return this.modelMapper.map(users, UserDto.class);
     }
 
     private User convertFromDto(UserDto userDto) {
         return this.modelMapper.map(userDto, User.class);
     }
 
-    public UserDto getByUserName(String userName) {
+    public Optional<UserDto> getByUserName(String userName) {
         return this.repository.findByUserName(userName);
     }
 
     public UserDto register(UserDto usuarioDto) {
-        User user = this.convertFromDto(usuarioDto);
-        final var save = this.repository.save(user);
+        User users = this.convertFromDto(usuarioDto);
+        final var save = this.repository.save(users);
         return this.convertDto(save);
     }
 }

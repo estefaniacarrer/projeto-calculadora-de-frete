@@ -29,8 +29,8 @@ public class UserRestController {
                 .toList();
     }
 
-    private UserResponse convertResponse(UserDto user) {
-        return this.modelMapper.map(user, UserResponse.class);
+    private UserResponse convertResponse(UserDto users) {
+        return this.modelMapper.map(users, UserResponse.class);
     }
 
     @GetMapping("/{userName}")
@@ -41,14 +41,14 @@ public class UserRestController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public UserResponse register(@RequestBody @Valid UserRequest user) {
-        UserDto userDto = this.convertRequest(user);
+    public UserResponse register(@RequestBody @Valid UserRequest users) {
+        UserDto userDto = this.convertRequest(users);
         UserDto userSalvo = this.service.register(userDto);
         return this.convertResponse(userSalvo);
     }
 
-    private UserDto convertRequest(UserRequest user) {
-        return this.modelMapper.map(user, UserDto.class);
+    private UserDto convertRequest(UserRequest users) {
+        return this.modelMapper.map(users, UserDto.class);
     }
 
 }
