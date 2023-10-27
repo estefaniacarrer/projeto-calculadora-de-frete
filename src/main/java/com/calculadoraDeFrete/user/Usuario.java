@@ -27,9 +27,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 @AllArgsConstructor
 @ToString
 @Entity
-@Where(clause = "userActive = true")
-
-public class Usuario implements userDetails {
+@Where(clause = "active = true")
+public class Usuario implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

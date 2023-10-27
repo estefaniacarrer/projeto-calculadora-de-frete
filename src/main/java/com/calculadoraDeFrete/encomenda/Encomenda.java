@@ -1,5 +1,6 @@
 package com.calculadoraDeFrete.encomenda;
 
+import com.calculadoraDeFrete.user.Usuario;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -43,5 +44,9 @@ public class Encomenda {
     })
     private Endereco enderecoDestino;
     private double valorFrete;
+
+    @ManyToOne
+    @JoinColumn(name = "usuario_id")
+    private Usuario usuario;
 
 }

@@ -29,7 +29,7 @@ public class EncomendaController {
     public EncomendaResponse getPorUuid(@PathVariable UUID uuid) {
         return this.service.getPorUuid(uuid)
                 .map(this::convertResponse)
-                .orElseThrow(() -> new NaoEncontradoException("TodoItem não encontrado"));
+                .orElseThrow(() -> new NaoEncontradoException("Encomenda não encontrada"));
     }
 
     @GetMapping(params = {"descricao"})

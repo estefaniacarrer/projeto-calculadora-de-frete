@@ -1,55 +1,23 @@
-utilizar a API MATRIX
+# Projeto AdaTech Catalogo Filmes
+Modulo 5 - Programação WebII - Spring Framework
 
-MATRIX ------------------------------------------------------------------------------------------------------------
-https://maps.googleapis.com/maps/api/distancematrix/json
-  ?destinations=New%20York%20City%2C%20NY
-  &origins=Washington%2C%20DC
-  &units=imperial
-  &key=YOUR_API_KEY
+# 🚩 Descrição: Calculador de Frete é uma solução de software que permite que empresas de transporte calculem facilmente a precificação de frete com base em diferentes tipos pacotes. Projetada para otimizar a logística e operações de transporte, essa API oferece uma maneira eficiente e confiável de calculo de custos, facilitando as operações diárias de transporte.
 
-retorno
-{
-  "destination_addresses": ["New York, NY, USA"],
-  "origin_addresses": ["Washington, DC, USA"],
-  "rows":
-    [
-      {
-        "elements":
-          [
-            {
-              "distance": { "text": "228 mi", "value": 367654 },
-              "duration": { "text": "3 hours 55 mins", "value": 14078 },
-              "status": "OK",
-            },
-          ],
-      },
-    ],
-  "status": "OK",
-}
+Como uma empresa de logística, precisamos de uma solução de cálculo de frete que aceite o tipo de pacote como entrada e retorne instantaneamente o custo de frete correspondente, tornando nossas operações de transporte mais ágeis.
 
-------------------------------------------------------------------------------------------------------------------
+# Requisitos Técnicos:
 
+<img width="30" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg"> Java 17 ou superior
 
-preciso de 3 telas: login, cadastro e calculo de frete (sprint 1)
-preciso calcular o valor do frete baseado: distancia(api externa), tamanho, peso, tipo de envio(api propria) (sprint 1)
-fazer enum de tamanho do pacote: valores definidos de altura, largura, comprimento (sprint 1)
+# Integrantes do grupo:
 
+Estefania Carrer
 
-preciso de recuperação de senha (sprint 2)
-preciso de uma interface gráfica (sprint 2)
+Iury
 
+Jefferson Sousa
 
-
-variaveis:
-
-private String nome;
-private String nomeDestinatario;
-private String cepOrigem;
-private String cepDestino;
-private double altura;
-private double comprimento;
-private double largura;
-private double peso;
+Mateus Milane
 
 
 
