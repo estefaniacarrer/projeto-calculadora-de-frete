@@ -8,7 +8,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -30,26 +29,43 @@ import org.springframework.security.core.userdetails.UserDetails;
 @Entity
 @Where(clause = "userActive = true")
 
-public class User implements UserDetails {
+public class Usuario implements userDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long userId;
+    private Long id;
     @Column(unique = true)
-    private String userName;
-    @Column(unique = true)
-    private String userEmail;
-    private String userPassword;
-    private LocalDateTime userRegistrationDate;
-    private Boolean userActive;
-
+    private String username;
+    private String email;
+    private String password;
+    @Enumerated(EnumType.STRING)
+    private Role role;
+    private Boolean active;
     private boolean accountExpired;
     private boolean accountLocked;
     private boolean credentialsExpired;
 
-    public User(String userName, String userEmail, String userPassword){
-        this.userName = userName;
-        this.userEmail = userEmail;
-        this.userPassword = userPassword;
-        this.userActive = true;
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return new ArrayList<>(Collections.singletonList(new SimpleGrantedAuthority("ROLE_" + this.role.name())));
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return !this.accountExpired;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return !this.accountLocked;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return !this.credentialsExpired;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return this.active;
     }
 }

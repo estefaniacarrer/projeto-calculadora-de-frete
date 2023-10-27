@@ -11,7 +11,7 @@ import java.io.Serializable;
 @Setter
 @ToString
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class UserResponse implements Serializable {
+public class UsuarioResponse implements Serializable {
 
     private String email;
     private String username;

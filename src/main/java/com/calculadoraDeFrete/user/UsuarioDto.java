@@ -7,11 +7,15 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class UserDto {
+public class UsuarioDto {
 
     private String email;
     private String username;
     private String password;
+
+    public UsuarioDto(String username) {
+        this.username = username;
+    }
 }
 
 
