@@ -1,6 +1,5 @@
-package com.calculadoraDeFrete.model;
+package com.calculadoraDeFrete.encomenda;
 
-import com.calculadoraDeFrete.dto.EncomendaDTO;
 import jakarta.persistence.*;
 import lombok.*;
 

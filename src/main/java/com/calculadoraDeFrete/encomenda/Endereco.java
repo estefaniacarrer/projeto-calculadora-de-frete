@@ -1,4 +1,4 @@
-package com.calculadoraDeFrete.model;
+package com.calculadoraDeFrete.encomenda;
 
 import jakarta.persistence.*;
 import lombok.*;

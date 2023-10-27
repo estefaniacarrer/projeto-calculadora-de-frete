@@ -1,9 +1,8 @@
-package com.calculadoraDeFrete.service;
+package com.calculadoraDeFrete.encomenda.frete;
 
-import com.calculadoraDeFrete.dto.DistanciaDTO;
-import com.calculadoraDeFrete.dto.EncomendaDTO;
-import com.calculadoraDeFrete.model.Endereco;
-import com.calculadoraDeFrete.model.TipoPacote;
+import com.calculadoraDeFrete.encomenda.EncomendaDTO;
+import com.calculadoraDeFrete.encomenda.Endereco;
+import com.calculadoraDeFrete.encomenda.TipoPacote;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

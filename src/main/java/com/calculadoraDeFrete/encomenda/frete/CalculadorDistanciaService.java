@@ -1,7 +1,6 @@
-package com.calculadoraDeFrete.service;
+package com.calculadoraDeFrete.encomenda.frete;
 
-import com.calculadoraDeFrete.dto.DistanciaDTO;
-import com.calculadoraDeFrete.model.Endereco;
+import com.calculadoraDeFrete.encomenda.Endereco;
 import com.google.maps.DistanceMatrixApi;
 import com.google.maps.GeoApiContext;
 import com.google.maps.model.DistanceMatrix;
