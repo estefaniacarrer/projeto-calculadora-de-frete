@@ -1,5 +1,7 @@
 package com.calculadoraDeFrete.login;
 
+import com.calculadoraDeFrete.user.Usuario;
+import com.calculadoraDeFrete.user.UsuarioRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -8,8 +10,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import tech.ada.java.todolist.usuario.Usuario;
-import tech.ada.java.todolist.usuario.UsuarioRepository;
 
 @RestController
 @RequestMapping("/login")

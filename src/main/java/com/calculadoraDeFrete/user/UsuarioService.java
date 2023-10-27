@@ -4,6 +4,7 @@ package com.calculadoraDeFrete.user;
 import java.util.List;
 import java.util.Optional;
 
+import com.calculadoraDeFrete.exceptions.NaoEncontradoException;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
