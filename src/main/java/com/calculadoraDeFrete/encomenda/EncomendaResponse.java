@@ -1,5 +1,6 @@
 package com.calculadoraDeFrete.encomenda;
 
+import com.calculadoraDeFrete.user.UsuarioResponse;
 import lombok.*;
 
 import java.util.UUID;
@@ -19,5 +20,6 @@ public class EncomendaResponse {
     private Endereco enderecoOrigem;
     private Endereco enderecoDestino;
     private double valorFrete;
+    private UsuarioResponse usuario;
 
 }
