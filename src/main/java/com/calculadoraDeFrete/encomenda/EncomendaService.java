@@ -8,6 +8,8 @@ import com.calculadoraDeFrete.encomenda.EncomendaDTO;
 import com.calculadoraDeFrete.encomenda.Encomenda;
 import com.calculadoraDeFrete.encomenda.EncomendaRepository;
 import com.calculadoraDeFrete.encomenda.frete.CalculadorFreteService;
+import com.calculadoraDeFrete.user.Usuario;
+import com.calculadoraDeFrete.user.UsuarioService;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
@@ -19,6 +21,7 @@ public class EncomendaService {
     private final EncomendaRepository repository;
     private final ModelMapper modelMapper;
     private final CalculadorFreteService calculadorFreteService;
+    private final UsuarioService usuarioService;
 
     public List<EncomendaDTO> listarTodos() {
         return this.repository.findAll().stream()
@@ -51,12 +54,16 @@ public class EncomendaService {
         UUID uuid = UUID.randomUUID();
         encomenda.setUuid(uuid);
 
+        Usuario usuario = usuarioService.getByUsernameEntity(request.getUsername());
+        encomenda.setUsuario(usuario);
+
         double valorFrete = calculadorFreteService.calcularFrete(encomendaDTO);
         encomenda.setValorFrete(valorFrete);
 
         Encomenda savedEncomenda = repository.save(encomenda);
         return modelMapper.map(savedEncomenda, EncomendaResponse.class);
     }
+
 
     public EncomendaDTO substituir(UUID uuid, EncomendaDTO request) {
         Encomenda encomenda = this.repository.findByUuid(uuid).orElseThrow();

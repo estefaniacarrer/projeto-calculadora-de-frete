@@ -20,13 +20,14 @@ INSERT INTO usuario (email, username, password, role)
 INSERT INTO usuario (email, username, password, role)
   VALUES ('tiago.santos@email.com', 'tiago.santos', '$2a$12$NcbYFE2h/9t9f/6O0nfNru..y4/L.nZW/rnlk4cxx01/TMFdmhdLG', 'DEPARTAMENTO1');
 
---INSERT INTO Encomenda (uuid, nome_Remetente, nome_Destinatario, descricao, tipo_Pacote, origem_logradouro, origem_numero, origem_cidade, origem_estado, origem_codigo_postal, destino_logradouro, destino_numero, destino_cidade, destino_estado, destino_codigo_postal, valor_Frete, usuario_id)
---VALUES
---('b3e4d5a2-4f6a-9c2d-5e6b-7f8a1d4e', 'Pedro Oliveira', 'Luisa Costa', 'Eletrônicos', 'MEDIO', 'Rua das Oliveiras', '25', 'Porto Alegre', 'RS', '56789-012', 'Avenida dos Pinheiros', '35', 'Curitiba', 'PR', '12345-678', 60.0, 3),
---('g2h3i4j5-6k7l-8m9n-0o1p-2q3r4s5t6u7v', 'Fernanda Almeida', 'Ricardo Santos', 'Jogos', 'PEQUENO', 'Rua das Aroeiras', '15', 'Belo Horizonte', 'MG', '34567-890', 'Avenida dos Ipês', '25', 'Florianópolis', 'SC', '23456-789', 70.0, 4),
---('w1x2y3z4-5a6b-7c8d-9e0f-1g2h3i4j5k6l', 'Juliana Rodrigues', 'Fábio Silva', 'Cosméticos', 'PEQUENO', 'Rua dos Jasmins', '5', 'Goiânia', 'GO', '45678-901', 'Avenida das Camélias', '15', 'São Luís', 'MA', '34567-890', 45.0, 5),
---('m9n8b7v6-5c4x3z2-1q2w3e4r5t6y', 'Mariana Oliveira', 'Rodrigo Alves', 'Roupas', 'GRANDE', 'Rua das Azaleias', '40', 'Manaus', 'AM', '56789-012', 'Avenida das Orquídeas', '30', 'Vitória', 'ES', '45678-901', 90.0, 6),
---('s1a2d3f4-5g6h7j8-9k0l1z2x3c4v', 'Roberto Castro', 'Sandra Santos', 'Livros', 'EXTRAGRANDE', 'Rua dos Cravos', '20', 'Recife', 'PE', '67890-123', 'Avenida das Rosas', '10', 'João Pessoa', 'PB', '56789-012', 55.0, 7),
---('b9v8c7x6-5z4k3m2-1n2b3v4b5n6m', 'Patricia Almeida', 'Rafaela Lima', 'Eletrônicos', 'GRANDE', 'Rua das Margaridas', '30', 'Salvador', 'BA', '78901-234', 'Avenida das Tulipas', '5', 'Maceió', 'AL', '67890-123', 85.0, 8),
---('p0o9i8u7-6y5t4r3-2e1w2q3-4a5s6d7f8g9', 'Lucas Oliveira', 'Vinicius Santos', 'Jogos', 'MEDIO', 'Rua das Violetas', '15', 'Natal', 'RN', '89012-345', 'Avenida das Bromélias', '25', 'Aracaju', 'SE', '78901-234', 65.0, 9),
---('c2v3b4n5-6m7b8v9-0l1z2x3-4a5s6d7f8g9h', 'Renata Alves', 'Fernanda Lima', 'Cosméticos', 'PEQUENO', 'Rua dos Girassóis', '10', 'Brasília', 'DF', '90123-456', 'Avenida das Dálias', '20', 'Porto Velho', 'RO', '89012-345', 40.0, 10);
+INSERT INTO encomenda (uuid, nome_remetente, nome_destinatario, descricao, tipo_pacote, origem_logradouro, origem_numero, origem_cidade, origem_estado, origem_codigo_postal, destino_logradouro, destino_numero, destino_cidade, destino_estado, destino_codigo_postal, valor_frete, usuario_id)
+VALUES
+('d633013e-6ea8-48e0-b2a1-0c42adeb3431', 'Pedro Oliveira', 'Luisa Costa', 'Eletrônicos', 'MEDIO', 'Rua das Oliveiras', '25', 'Porto Alegre', 'RS', '56789-012', 'Avenida dos Pinheiros', '35', 'Curitiba', 'PR', '12345-678', 60.00, 4),
+('017af59e-e6a3-4a26-81ca-07ecfe81f681', 'Fernanda Almeida', 'Ricardo Santos', 'Jogos', 'PEQUENO', 'Rua das Aroeiras', '15', 'Belo Horizonte', 'MG', '34567-890', 'Avenida dos Ipês', '25', 'Florianópolis', 'SC', '23456-789', 70.00, 5),
+('a482e4f2-d275-47ef-bc72-afaf26a32a2f', 'Juliana Rodrigues', 'Fábio Silva', 'Cosméticos', 'PEQUENO', 'Rua dos Jasmins', '5', 'Goiânia', 'GO', '45678-901', 'Avenida das Camélias', '15', 'São Luís', 'MA', '34567-890', 45.00, 6),
+('ca6c3621-fcaf-4e80-8985-07a75bc62502', 'Mariana Oliveira', 'Rodrigo Alves', 'Roupas', 'GRANDE', 'Rua das Azaleias', '40', 'Manaus', 'AM', '56789-012', 'Avenida das Orquídeas', '30', 'Vitória', 'ES', '45678-901', 90.00, 7),
+('e699ef16-7fb7-4135-8159-e4b13f12a5b3', 'Roberto Castro', 'Sandra Santos', 'Livros', 'EXTRAGRANDE', 'Rua dos Cravos', '20', 'Recife', 'PE', '67890-123', 'Avenida das Rosas', '10', 'João Pessoa', 'PB', '56789-012', 55.00, 8),
+('60357ea6-d9b9-48b9-9c3f-718afa9683a1', 'Patricia Almeida', 'Rafaela Lima', 'Eletrônicos', 'GRANDE', 'Rua das Margaridas', '30', 'Salvador', 'BA', '78901-234', 'Avenida das Tulipas', '5', 'Maceió', 'AL', '67890-123', 85.00, 9),
+('9b1dd733-84b3-470d-ac40-88b0b5236a1e', 'Lucas Oliveira', 'Vinicius Santos', 'Jogos', 'MEDIO', 'Rua das Violetas', '15', 'Natal', 'RN', '89012-345', 'Avenida das Bromélias', '25', 'Aracaju', 'SE', '78901-234', 65.00, 9),
+('6602c9c4-8a44-41cb-803d-4d6d096791f1', 'Renata Alves', 'Fernanda Lima', 'Cosméticos', 'PEQUENO', 'Rua dos Girassóis', '10', 'Brasília', 'DF', '90123-456', 'Avenida das Dálias', '20', 'Porto Velho', 'RO', '89012-345', 40.00, 9);
+

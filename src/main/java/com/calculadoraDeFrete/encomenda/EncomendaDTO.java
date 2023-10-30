@@ -1,5 +1,6 @@
 package com.calculadoraDeFrete.encomenda;
 
+import com.calculadoraDeFrete.user.UsuarioDto;
 import lombok.*;
 
 import java.util.UUID;
@@ -19,4 +20,5 @@ public class EncomendaDTO {
     private Endereco enderecoOrigem;
     private Endereco enderecoDestino;
     private double valorFrete;
+    private UsuarioDto usuario;
 }
