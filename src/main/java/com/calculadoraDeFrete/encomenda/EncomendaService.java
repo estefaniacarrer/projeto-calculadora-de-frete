@@ -8,6 +8,7 @@ import com.calculadoraDeFrete.encomenda.EncomendaDTO;
 import com.calculadoraDeFrete.encomenda.Encomenda;
 import com.calculadoraDeFrete.encomenda.EncomendaRepository;
 import com.calculadoraDeFrete.encomenda.frete.CalculadorFreteService;
+import com.calculadoraDeFrete.exceptions.NaoEncontradoException;
 import com.calculadoraDeFrete.user.Usuario;
 import com.calculadoraDeFrete.user.UsuarioService;
 import lombok.RequiredArgsConstructor;
@@ -66,7 +67,8 @@ public class EncomendaService {
 
 
     public EncomendaDTO substituir(UUID uuid, EncomendaDTO request) {
-        Encomenda encomenda = this.repository.findByUuid(uuid).orElseThrow();
+        Encomenda encomenda = this.repository.findByUuid(uuid)
+                .orElseThrow(() -> new NaoEncontradoException("Encomenda não encontrada"));
         encomenda.setNomeRemetente(request.getNomeRemetente());
         encomenda.setNomeDestinatario(request.getNomeDestinatario());
         encomenda.setDescricao(request.getDescricao());
@@ -76,7 +78,8 @@ public class EncomendaService {
     }
 
     public void excluir(UUID uuid) {
-        Encomenda encomenda = this.repository.findByUuid(uuid).orElseThrow();
+        Encomenda encomenda = this.repository.findByUuid(uuid)
+                .orElseThrow(() -> new NaoEncontradoException("Encomenda não encontrada"));
         this.repository.delete(encomenda);
     }
 }
